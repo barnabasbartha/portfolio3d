@@ -19,13 +19,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build with Nx
+        run: npx nx build portfolio3d
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/portfolio3d
+          path: dist/apps/portfolio3d
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
